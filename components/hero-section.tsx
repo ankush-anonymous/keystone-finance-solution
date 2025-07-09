@@ -41,10 +41,10 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-8">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-full">
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-l">
               Buy A Home
             </Button>
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-full">
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-l">
               Refinance
             </Button>
           </div>
@@ -52,13 +52,13 @@ export default function HeroSection() {
           <div className="flex gap-4">
             <Button
               variant="outline"
-              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 bg-white/80 backdrop-blur-sm px-6 py-3 font-semibold rounded-full"
+              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 bg-white/80 backdrop-blur-sm px-6 py-3 font-semibold rounded-xl"
             >
               1st Mortgage
             </Button>
             <Button
               variant="outline"
-              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 bg-white/80 backdrop-blur-sm px-6 py-3 font-semibold rounded-full"
+              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 bg-white/80 backdrop-blur-sm px-6 py-3 font-semibold rounded-xl"
             >
               2nd Mortgage
             </Button>

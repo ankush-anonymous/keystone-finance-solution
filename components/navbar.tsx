@@ -28,7 +28,7 @@ export default function Navbar() {
                 Contact Us
               </Link>
             </div>
-            <Button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full">Contact Us</Button>
+            <Button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-xl">Contact Us</Button>
           </div>
         </div>
       </div>

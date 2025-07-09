@@ -5,7 +5,7 @@ import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="relative bg-orange-500 text-white overflow-hidden">
+    <footer className="relative bg-orange-700 text-white overflow-hidden">
       {/* Geometric pattern background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-r from-green-500 via-blue-600 to-green-500 transform -skew-y-1"></div>
