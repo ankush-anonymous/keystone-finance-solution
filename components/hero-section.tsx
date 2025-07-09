@@ -29,7 +29,7 @@ export default function HeroSection() {
           <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight mb-6">
             From Dreams To Reality: <br />
             Embrace Homeownership With Our <br />
-            <span className="text-green-500">Mortgages</span>
+            <span className="text-[#4BA327]">Mortgages</span>
           </h1>
 
           <div className="w-16 h-1 bg-blue-600 mb-8"></div>

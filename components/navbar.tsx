@@ -15,8 +15,11 @@ export default function Navbar() {
               <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 Home
               </Link>
-              <Link href="/apply" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Apply Now
+              <Link href="/services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Services
+              </Link>
+              <Link href="/industries" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Industries
               </Link>
               <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 About Us

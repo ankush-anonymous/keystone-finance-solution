@@ -11,7 +11,7 @@ const testimonials = [
     title: "Client 2",
     content:
       "Posuere Aliquam Sed Vestibulum Duis Vestibulum Consectetur. Cursus Nulla Dictum Lacus Euismod Dignissim Habitant Ut Amet Convallis.",
-    avatar: "/placeholder.svg?height=60&width=60",
+    avatar: "https://www.shutterstock.com/image-photo/passport-photo-portrait-young-man-260nw-2437772333.jpg",
     position: "top-8 left-8",
   },
   {
@@ -27,7 +27,7 @@ const testimonials = [
     title: "Client 3",
     content:
       "Posuere Aliquam Sed Vestibulum Duis Vestibulum Consectetur. Cursus Nulla Dictum Lacus Euismod Dignissim Habitant Ut Amet.",
-    avatar: "/placeholder.svg?height=60&width=60",
+    avatar: "https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFzc3BvcnQlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D",
     position: "top-80 left-16",
   },
 ]
@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
                       <Quote className="w-5 h-5 text-white" />
                     </div>
                     <Image
-                      src={testimonial.avatar || "/placeholder.svg"}
+                      src={`url${testimonial.avatar}` || "/placeholder.svg"}
                       alt={testimonial.name}
                       width={50}
                       height={50}

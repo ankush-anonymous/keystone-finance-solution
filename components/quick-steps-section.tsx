@@ -45,7 +45,7 @@ export default function QuickStepsSection() {
               {/* Image placeholder for step 1 */}
               <div className="w-80 h-48 bg-gray-200 rounded-lg mr-8 flex-shrink-0">
                 <Image
-                  src="/placeholder.svg?height=192&width=320"
+                  src="/images/step-1-image.jpg"
                   alt="Woman working on laptop"
                   width={320}
                   height={192}
@@ -101,7 +101,7 @@ export default function QuickStepsSection() {
               {/* Image placeholder for step 2 */}
               <div className="w-80 h-48 bg-gray-200 rounded-lg flex-shrink-0">
                 <Image
-                  src="/placeholder.svg?height=192&width=320"
+                  src="/images/step-2-image.jpg"
                   alt="Business meeting"
                   width={320}
                   height={192}
@@ -117,7 +117,7 @@ export default function QuickStepsSection() {
               {/* Image placeholder for step 3 */}
               <div className="w-80 h-48 bg-gray-200 rounded-lg mr-8 flex-shrink-0">
                 <Image
-                  src="/placeholder.svg?height=192&width=320"
+                  src="/images/step-3-image.jpg"
                   alt="Approved stamp"
                   width={320}
                   height={192}

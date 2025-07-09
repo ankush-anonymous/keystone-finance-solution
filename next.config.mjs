@@ -6,8 +6,12 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
+   images: {
+    domains: [
+      "plus.unsplash.com",
+      "lh3.googleusercontent.com",
+      "www.shutterstock.com" // ✅ Add this line
+    ],
   },
 }
 
