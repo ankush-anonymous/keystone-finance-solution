@@ -199,7 +199,7 @@ export default function IndustriesContent() {
       ))}
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-500 to-orange-600 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-r from-blue-500 to-indigo-600 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white transform rotate-45 animate-spin"></div>
           <div className="absolute bottom-10 right-10 w-24 h-24 border-2 border-white transform -rotate-45 animate-pulse"></div>

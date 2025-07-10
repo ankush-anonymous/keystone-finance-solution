@@ -9,7 +9,8 @@ export default function HeroSection() {
       {/* Background container */}
       <div className="absolute inset-0">
         {/* Background gradient to white */}
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-200 via-orange-100/80 to-transparent z-10" />
+        <div className="absolute inset-0 " />
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-orange-200 via-orange-100/80 to-transparent z-10" /> */}
 
         {/* Background image aligned right */}
         <div className="absolute inset-0 z-0">
@@ -22,6 +23,8 @@ export default function HeroSection() {
           />
         </div>
       </div>
+        <div className="absolute inset-0 bg-blue-500/30 z-0" />
+
 
       {/* Foreground content */}
       <div className="relative z-20 container mx-auto px-4 pt-32 pb-20">
@@ -34,35 +37,13 @@ export default function HeroSection() {
 
           <div className="w-16 h-1 bg-blue-600 mb-8"></div>
 
-          <p className="text-lg text-gray-700 max-w-xl mb-12 leading-relaxed">
+          <p className="text-lg text-gray-200 max-w-xl mb-12 leading-relaxed">
             Whether You Are A First-Time Home Buyer, Looking To Refinance Or
             Upgrade Your Dream Home, We Have Expertise And Options To Help You
             Along The Way!
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-8">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-l">
-              Buy A Home
-            </Button>
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-l">
-              Refinance
-            </Button>
-          </div>
 
-          <div className="flex gap-4">
-            <Button
-              variant="outline"
-              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 bg-white/80 backdrop-blur-sm px-6 py-3 font-semibold rounded-xl"
-            >
-              1st Mortgage
-            </Button>
-            <Button
-              variant="outline"
-              className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 bg-white/80 backdrop-blur-sm px-6 py-3 font-semibold rounded-xl"
-            >
-              2nd Mortgage
-            </Button>
-          </div>
         </div>
       </div>
     </section>
