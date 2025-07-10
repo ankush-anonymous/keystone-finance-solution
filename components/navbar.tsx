@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   return (
@@ -12,26 +12,42 @@ export default function Navbar() {
 
           <div className="flex items-center space-x-8">
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <Link
+                href="/"
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >
                 Home
               </Link>
-              <Link href="/services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <Link
+                href="/services"
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >
                 Services
               </Link>
-              <Link href="/industries" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <Link
+                href="/industries"
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >
                 Industries
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <Link
+                href="/about"
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+              >
                 About Us
               </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+            </div>
+            <Button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-xl">
+              {" "}
+              <Link
+                href="/contact"
+              >
                 Contact Us
               </Link>
-            </div>
-            <Button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-xl">Contact Us</Button>
+            </Button>
           </div>
         </div>
       </div>
     </nav>
-  )
+  );
 }
