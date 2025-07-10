@@ -53,10 +53,10 @@ const services = [
 
 export default function ServicesSection() {
   return (
- <section
+    <section
       className="py-20 bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: "url('/images/services-bg.png')" }}
-    >      
+    >
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
@@ -65,39 +65,40 @@ export default function ServicesSection() {
               className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 relative border-2 border-transparent hover:border-opacity-50"
             >
               {/* Curved Header Section */}
-           {/* Curved Header Section */}
-<div className="relative h-48 overflow-hidden rounded-t-lg">
-  {/* Background image fills the header */}
-  <img
-    src={service.img}
-    alt={`${service.title} illustration`}
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+              {/* Curved Header Section */}
+              <div className="relative h-48 overflow-hidden rounded-t-lg">
+                {/* Background image fills the header */}
+                <img
+                  src={service.img}
+                  alt={`${service.title} illustration`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
 
-  {/* Overlay tint */}
-  <div
-    className={`absolute inset-0 ${service.color} bg-opacity-50`}
-  ></div>
+                {/* Overlay tint */}
+                {/* <div
+                  className={`absolute inset-0 ${service.color} bg-opacity-50`}
+                ></div> */}
 
-  {/* Orange Ribbon Title */}
-  <div className="absolute top-6 left-0 z-20">
-    <div className="bg-indigo-500 rounded-r-full px-8 py-3 shadow-md">
-      <h3 className="text-white font-bold text-lg">{service.title}</h3>
-    </div>
-  </div>
+                {/* Orange Ribbon Title */}
+                <div className="absolute top-6 left-0 z-20">
+                  <div className="bg-indigo-500 rounded-r-full px-8 py-3 shadow-md">
+                    <h3 className="text-white font-bold text-lg">
+                      {service.title}
+                    </h3>
+                  </div>
+                </div>
 
-  {/* Optional curved SVG at bottom */}
-  <div className="absolute bottom-0 left-0 right-0">
-    <svg
-      viewBox="0 0 400 100"
-      className="w-full h-16 fill-white"
-      preserveAspectRatio="none"
-    >
-      <path d="M0,100 C150,0 250,0 400,100 L400,100 L0,100 Z" />
-    </svg>
-  </div>
-</div>
-
+                {/* Optional curved SVG at bottom */}
+                <div className="absolute bottom-0 left-0 right-0">
+                  <svg
+                    viewBox="0 0 400 100"
+                    className="w-full h-16 fill-white"
+                    preserveAspectRatio="none"
+                  >
+                    <path d="M0,100 C150,0 250,0 400,100 L400,100 L0,100 Z" />
+                  </svg>
+                </div>
+              </div>
 
               <CardContent className="p-6 pt-2 relative">
                 {/* Color Underline - appears on hover */}

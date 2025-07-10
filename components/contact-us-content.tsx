@@ -7,7 +7,21 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Users, TrendingUp, Shield, Zap, HelpCircle } from "lucide-react"
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  CheckCircle,
+  Users,
+  TrendingUp,
+  Shield,
+  Zap,
+  HelpCircle,
+  AlertCircle,
+  X,
+} from "lucide-react"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
@@ -85,7 +99,20 @@ export default function ContactUsContent() {
   const formRef = useRef(null)
   const faqRef = useRef(null)
   const contactCardsRef = useRef([])
+
+  // Form state
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  })
+
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', or null
+  const [errors, setErrors] = useState([])
   const [focusedField, setFocusedField] = useState("")
 
   useEffect(() => {
@@ -269,11 +296,24 @@ export default function ContactUsContent() {
     return () => ctx.revert()
   }, [])
 
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }))
+
+    // Clear errors when user starts typing
+    if (errors.length > 0) {
+      setErrors([])
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setErrors([])
 
-    // Submit animation
+    // Submit button animation
     gsap.to(".submit-button", {
       scale: 0.95,
       duration: 0.1,
@@ -287,10 +327,81 @@ export default function ContactUsContent() {
       },
     })
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitStatus("success")
+
+        // Success animation
+        gsap.fromTo(
+          ".success-message",
+          {
+            scale: 0,
+            opacity: 0,
+            y: 50,
+          },
+          {
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "back.out(1.7)",
+          },
+        )
+
+        // Confetti animation
+        gsap.to(".success-icon", {
+          rotation: 360,
+          scale: 1.2,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          repeat: 1,
+          yoyo: true,
+        })
+
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        })
+      } else {
+        setSubmitStatus("error")
+        setErrors(result.errors || [result.message])
+
+        // Error animation
+        gsap.fromTo(
+          ".error-message",
+          {
+            x: -20,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+        )
+      }
+    } catch (error) {
+      setSubmitStatus("error")
+      setErrors(["Network error. Please check your connection and try again."])
+    } finally {
       setIsSubmitting(false)
-    }, 2000)
+    }
   }
 
   const handleFieldFocus = (fieldName) => {
@@ -299,6 +410,19 @@ export default function ContactUsContent() {
 
   const handleFieldBlur = () => {
     setFocusedField("")
+  }
+
+  const closeMessage = () => {
+    gsap.to(".status-message", {
+      opacity: 0,
+      y: -20,
+      duration: 0.3,
+      ease: "power2.out",
+      onComplete: () => {
+        setSubmitStatus(null)
+        setErrors([])
+      },
+    })
   }
 
   return (
@@ -384,6 +508,49 @@ export default function ContactUsContent() {
                   <CardTitle className="text-3xl text-center">Send Us a Message</CardTitle>
                 </CardHeader>
                 <CardContent className="p-8">
+                  {/* Status Messages */}
+                  {submitStatus && (
+                    <div
+                      className={`status-message mb-6 p-4 rounded-lg ${
+                        submitStatus === "success"
+                          ? "bg-green-50 border border-green-200"
+                          : "bg-red-50 border border-red-200"
+                      }`}
+                    >
+                      {submitStatus === "success" ? (
+                        <div className="success-message flex items-center">
+                          <CheckCircle className="success-icon w-6 h-6 text-green-600 mr-3" />
+                          <div>
+                            <h4 className="font-semibold text-green-800">Message Sent Successfully! 🎉</h4>
+                            <p className="text-green-700 text-sm mt-1">
+                              Thank you for contacting us. We'll get back to you within 24 hours.
+                            </p>
+                          </div>
+                          <button onClick={closeMessage} className="ml-auto text-green-600 hover:text-green-800">
+                            <X className="w-5 h-5" />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="error-message">
+                          <div className="flex items-start">
+                            <AlertCircle className="w-6 h-6 text-red-600 mr-3 flex-shrink-0 mt-0.5" />
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-red-800">Please fix the following errors:</h4>
+                              <ul className="text-red-700 text-sm mt-1 space-y-1">
+                                {errors.map((error, index) => (
+                                  <li key={index}>• {error}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <button onClick={closeMessage} className="text-red-600 hover:text-red-800">
+                              <X className="w-5 h-5" />
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
@@ -392,12 +559,15 @@ export default function ContactUsContent() {
                         </Label>
                         <Input
                           id="firstName"
+                          value={formData.firstName}
+                          onChange={(e) => handleInputChange("firstName", e.target.value)}
                           placeholder="Enter your first name"
                           className={`h-12 transition-all duration-300 ${
                             focusedField === "firstName" ? "border-green-500 ring-2 ring-green-200" : "border-gray-300"
                           }`}
                           onFocus={() => handleFieldFocus("firstName")}
                           onBlur={handleFieldBlur}
+                          required
                         />
                       </div>
                       <div className="space-y-2">
@@ -406,12 +576,15 @@ export default function ContactUsContent() {
                         </Label>
                         <Input
                           id="lastName"
+                          value={formData.lastName}
+                          onChange={(e) => handleInputChange("lastName", e.target.value)}
                           placeholder="Enter your last name"
                           className={`h-12 transition-all duration-300 ${
                             focusedField === "lastName" ? "border-green-500 ring-2 ring-green-200" : "border-gray-300"
                           }`}
                           onFocus={() => handleFieldFocus("lastName")}
                           onBlur={handleFieldBlur}
+                          required
                         />
                       </div>
                     </div>
@@ -424,12 +597,15 @@ export default function ContactUsContent() {
                         <Input
                           id="email"
                           type="email"
+                          value={formData.email}
+                          onChange={(e) => handleInputChange("email", e.target.value)}
                           placeholder="Enter your email"
                           className={`h-12 transition-all duration-300 ${
                             focusedField === "email" ? "border-green-500 ring-2 ring-green-200" : "border-gray-300"
                           }`}
                           onFocus={() => handleFieldFocus("email")}
                           onBlur={handleFieldBlur}
+                          required
                         />
                       </div>
                       <div className="space-y-2">
@@ -439,12 +615,15 @@ export default function ContactUsContent() {
                         <Input
                           id="phone"
                           type="tel"
+                          value={formData.phone}
+                          onChange={(e) => handleInputChange("phone", e.target.value)}
                           placeholder="Enter your phone number"
                           className={`h-12 transition-all duration-300 ${
                             focusedField === "phone" ? "border-green-500 ring-2 ring-green-200" : "border-gray-300"
                           }`}
                           onFocus={() => handleFieldFocus("phone")}
                           onBlur={handleFieldBlur}
+                          required
                         />
                       </div>
                     </div>
@@ -453,7 +632,7 @@ export default function ContactUsContent() {
                       <Label htmlFor="service" className="text-gray-700 font-semibold">
                         Service Interest
                       </Label>
-                      <Select>
+                      <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
                         <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
@@ -473,6 +652,8 @@ export default function ContactUsContent() {
                       </Label>
                       <Textarea
                         id="message"
+                        value={formData.message}
+                        onChange={(e) => handleInputChange("message", e.target.value)}
                         placeholder="Tell us about your financial needs and how we can help you..."
                         rows={5}
                         className={`resize-none transition-all duration-300 ${
@@ -480,18 +661,19 @@ export default function ContactUsContent() {
                         }`}
                         onFocus={() => handleFieldFocus("message")}
                         onBlur={handleFieldBlur}
+                        required
                       />
                     </div>
 
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="submit-button w-full bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white py-4 text-lg font-semibold transition-all duration-300"
+                      className="submit-button w-full bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white py-4 text-lg font-semibold transition-all duration-300 disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center justify-center">
                           <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                          Sending...
+                          Sending Message...
                         </div>
                       ) : (
                         <>
