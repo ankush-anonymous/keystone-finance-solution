@@ -56,7 +56,7 @@ export default function Footer() {
           >
             <div className="space-y-4">
               <h3 className="text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
-                FinancePro
+                Keystone
               </h3>
               <div className="w-16 h-1 bg-gradient-to-r from-green-400 to-emerald-300"></div>
             </div>
@@ -142,9 +142,9 @@ export default function Footer() {
             <h4 className="text-xl font-semibold text-green-400 mb-6">Get In Touch</h4>
             <div className="space-y-4">
               {[
-                { icon: Phone, text: "+1 (555) 123-4567", subtext: "Main Line" },
-                { icon: Mail, text: "info@financepro.com", subtext: "General Inquiries" },
-                { icon: MapPin, text: "123 Financial Street", subtext: "Toronto, ON M5V 3A8" },
+                { icon: Phone, text: "+1 (416) 400-7674", subtext: "Main Line" },
+                { icon: Mail, text: "info@keystonefinancialgrp.com", subtext: "General Inquiries" },
+                // { icon: MapPin, text: "123 Financial Street", subtext: "Toronto, ON M5V 3A8" },
                 { icon: Clock, text: "Mon - Fri: 9AM - 6PM", subtext: "Saturday: 10AM - 4PM" },
               ].map((contact, index) => (
                 <div
@@ -172,7 +172,7 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-blue-200 text-center md:text-left">
-              <p>&copy; 2024 FinancePro. All rights reserved.</p>
+              <p>&copy; 2024 Keystone. All rights reserved.</p>
               <p className="text-sm mt-1">Empowering Canadian businesses with trusted financial solutions.</p>
             </div>
 

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -116,10 +117,13 @@ export default function ServicesSection() {
                   {service.description}
                 </p>
 
-                {/* CTA Button */}
-                <Button className="w-full bg-green-500 hover:bg-green-600 text-white rounded-full py-2 group-hover:shadow-lg transition-all duration-300">
-                  Apply Now
-                </Button>
+               {/* CTA Button */}
+<Link href="/contact">
+  <Button className="w-full bg-[#004aad] hover:bg-[#0a346b] text-white rounded-full py-2 group-hover:shadow-lg transition-all duration-300">
+    Apply Now
+  </Button>
+</Link>
+
               </CardContent>
             </Card>
           ))}

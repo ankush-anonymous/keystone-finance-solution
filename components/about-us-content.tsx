@@ -214,131 +214,132 @@ export default function AboutUsContent() {
     return () => ctx.revert()
   }, [])
 
-  return (
-    <div className="pt-20">
-      {/* Top Section - Company Values & Team Image */}
-      <section ref={heroRef} className="min-h-screen py-16 bg-white relative overflow-hidden flex items-center">
-        {/* Floating geometric shapes */}
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          <div className="floating-shape-1 absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-xl"></div>
-          <div className="floating-shape-2 absolute bottom-40 right-20 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full blur-xl"></div>
-          <div className="floating-shape-3 absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-r from-orange-400 to-red-400 rounded-full blur-lg"></div>
-        </div>
+ return (
+  <div className="pt-20">
+    {/* Top Section - Company Values & Team Image */}
+    <section ref={heroRef} className="min-h-screen py-16 bg-white relative overflow-hidden flex items-center">
+      {/* Floating geometric shapes */}
+      <div className="absolute inset-0 overflow-hidden opacity-10">
+        <div className="floating-shape-1 absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-[#004aad] to-[#0a346b] rounded-full blur-xl"></div>
+        <div className="floating-shape-2 absolute bottom-40 right-20 w-24 h-24 bg-gradient-to-r from-[#38b6ff] to-[#004aad] rounded-full blur-xl"></div>
+        <div className="floating-shape-3 absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-r from-[#0a346b] to-[#004aad] rounded-full blur-lg"></div>
+      </div>
 
-        {/* Orange geometric shape */}
-        <div className="absolute top-0 right-0 w-1/3 h-full">
+      {/* Blue geometric shape */}
+      <div className="absolute top-0 right-0 w-1/3 h-full">
+        <div className="relative h-full">
+          <div className="absolute inset-0 bg-[#004aad] transform skew-x-12 origin-top-left opacity-10"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#0a346b] opacity-20"></div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-16 relative">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Content */}
+          <div ref={contentRef} className="space-y-8">
+            {/* About Us Title */}
+            <div className="mb-12">
+              <h1 ref={titleRef} className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                About Us
+              </h1>
+              <div className="w-20 h-1 bg-[#38b6ff]"></div>
+            </div>
+
+            <div>
+              <p className="text-gray-700 leading-relaxed mb-10 text-xl font-medium">
+                At Keystone, we believe in transforming homeownership dreams into reality. Our dedicated team of
+                mortgage professionals is committed to guiding you through every step of the financing process with
+                unparalleled expertise, transparency, and personalized service that puts your needs first.
+              </p>
+
+              <div className="space-y-6">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Why Choose Keystone?</h3>
+                <ul className="space-y-5">
+                  {companyValues.map((value, index) => (
+                    <li
+                      key={index}
+                      ref={(el) => (valuesRef.current[index] = el)}
+                      className="flex items-center group cursor-pointer"
+                    >
+                      <div className="w-8 h-8 bg-[#004aad] rounded-full flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-[#0a346b] transition-colors duration-300">
+                        <Check className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-gray-700 font-semibold text-lg group-hover:text-gray-900 transition-colors duration-300">
+                        {value}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Team Image */}
+          <div ref={imageRef} className="relative">
+            <div className="relative z-10">
+              <Image
+                src="/images/about-us-hero.png"
+                alt="Professional team meeting"
+                width={700}
+                height={600}
+                className="rounded-lg shadow-lg w-full h-96 lg:h-[500px] object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Mission Section */}
+    <section ref={missionRef} className="relative overflow-hidden min-h-screen">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/about-us-banner.png"
+          alt="Professional team collaboration"
+          fill
+          className="object-cover"
+        />
+
+        {/* Blue overlay */}
+        <div className="absolute top-0 right-0 w-1/2 h-full">
           <div className="relative h-full">
-            <div className="absolute inset-0 bg-orange-500 transform skew-x-12 origin-top-left opacity-20"></div>
-            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-600 opacity-30"></div>
+            <div className="absolute inset-0 bg-[#004aad] transform -skew-x-12 origin-top-right opacity-90"></div>
           </div>
         </div>
 
-        <div className="container mx-auto px-16 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Content */}
-            <div ref={contentRef} className="space-y-8">
-              {/* About Us Title */}
-              <div className="mb-12">
-                <h1 ref={titleRef} className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                  About Us
-                </h1>
-                <div className="w-20 h-1 bg-blue-600"></div>
-              </div>
+        {/* Blue floating accents */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[#0a346b] opacity-70"></div>
+        <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-[#004aad] opacity-60"></div>
+        <div className="absolute top-1/3 right-1/3 w-16 h-16 bg-[#38b6ff] opacity-50 rotate-45"></div>
 
-              <div>
-                <p className="text-gray-700 leading-relaxed mb-10 text-xl font-medium">
-                  At FinancePro, we believe in transforming homeownership dreams into reality. Our dedicated team of
-                  mortgage professionals is committed to guiding you through every step of the financing process with
-                  unparalleled expertise, transparency, and personalized service that puts your needs first.
-                </p>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/10"></div>
+      </div>
 
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">Why Choose FinancePro?</h3>
-                  <ul className="space-y-5">
-                    {companyValues.map((value, index) => (
-                      <li
-                        key={index}
-                        ref={(el) => (valuesRef.current[index] = el)}
-                        className="flex items-center group cursor-pointer"
-                      >
-                        <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-green-600 transition-colors duration-300">
-                          <Check className="w-5 h-5 text-white" />
-                        </div>
-                        <span className="text-gray-700 font-semibold text-lg group-hover:text-gray-900 transition-colors duration-300">
-                          {value}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Right side - Team Image */}
-            <div ref={imageRef} className="relative">
-              <div className="relative z-10">
-                <Image
-                  src="/placeholder.svg?height=600&width=700"
-                  alt="Professional team meeting"
-                  width={700}
-                  height={600}
-                  className="rounded-lg shadow-lg w-full h-96 lg:h-[500px] object-cover"
-                />
-              </div>
-            </div>
-          </div>
+      {/* Blue Mission Banner */}
+      <div className="absolute top-8 left-0 z-20">
+        <div className="bg-[#0a346b] rounded-r-full px-12 py-6">
+          <h2 className="text-3xl font-bold text-white">Our Mission</h2>
         </div>
-      </section>
+      </div>
 
-      {/* Mission Section */}
-      <section ref={missionRef} className="relative overflow-hidden min-h-screen">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=800&width=1400"
-            alt="Professional team collaboration"
-            fill
-            className="object-cover"
-          />
+      {/* Mission Content */}
+      <div
+        ref={missionContentRef}
+        className="absolute top-32 left-8 z-10 max-w-lg bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-xl"
+      >
+        <h3 className="text-3xl font-bold text-gray-900 mb-6">Empowering Dreams, Building Futures</h3>
+        <p className="text-gray-600 leading-relaxed text-lg">
+          We are here to empower you on your journey to homeownership and combine to building a secure and prosperous
+          future for you and your family.
+        </p>
+      </div>
 
-          {/* Blue geometric overlay */}
-          <div className="absolute top-0 right-0 w-1/2 h-full">
-            <div className="relative h-full">
-              <div className="absolute inset-0 bg-blue-800 transform -skew-x-12 origin-top-right opacity-90"></div>
-            </div>
-          </div>
+      {/* Bottom blue line */}
+      <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-[#38b6ff] to-[#004aad]"></div>
+    </section>
+  </div>
+)
 
-          {/* Orange geometric accents */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500 opacity-70"></div>
-          <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-orange-600 opacity-60"></div>
-          <div className="absolute top-1/3 right-1/3 w-16 h-16 bg-orange-400 opacity-50 rotate-45"></div>
-
-          {/* Content overlay */}
-          <div className="absolute inset-0 bg-black/10"></div>
-        </div>
-
-        {/* Orange Mission Banner */}
-        <div className="absolute top-8 left-0 z-20">
-          <div className="bg-orange-500 rounded-r-full px-12 py-6">
-            <h2 className="text-3xl font-bold text-white">Our Mission</h2>
-          </div>
-        </div>
-
-        {/* Mission Content */}
-        <div
-          ref={missionContentRef}
-          className="absolute top-32 left-8 z-10 max-w-lg bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-xl"
-        >
-          <h3 className="text-3xl font-bold text-gray-900 mb-6">Empowering Dreams, Building Futures</h3>
-          <p className="text-gray-600 leading-relaxed text-lg">
-            We are here to empower you on your journey to homeownership and combine to building a secure and prosperous
-            future for you and your family.
-          </p>
-        </div>
-
-        {/* Green accent line at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-green-500 to-green-600"></div>
-      </section>
-    </div>
-  )
 }

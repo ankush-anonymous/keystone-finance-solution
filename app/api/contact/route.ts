@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
           <div class="container">
             <div class="header">
               <h1>🎉 New Contact Form Submission</h1>
-              <p>FinancePro - Financial Solutions</p>
+              <p>Keystone - Financial Solutions</p>
             </div>
             <div class="content">
               <div class="field">
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
               </div>
             </div>
             <div class="footer">
-              <p>This email was sent from your FinancePro contact form.</p>
+              <p>This email was sent from your Keystone contact form.</p>
               <p>Please respond to the customer within 24 hours for best service.</p>
             </div>
           </div>
@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
       <html>
         <head>
           <meta charset="utf-8">
-          <title>Thank You for Contacting FinancePro</title>
+          <title>Thank You for Contacting Keystone</title>
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
@@ -146,7 +146,7 @@ export async function POST(request: NextRequest) {
             <div class="content">
               <p>Dear ${firstName} ${lastName},</p>
               
-              <p>Thank you for reaching out to <strong>FinancePro</strong>! We've successfully received your inquiry and our team is already reviewing your request.</p>
+              <p>Thank you for reaching out to <strong>Keystone</strong>! We've successfully received your inquiry and our team is already reviewing your request.</p>
               
               <div class="highlight">
                 <h3>🚀 What happens next?</h3>
@@ -160,19 +160,19 @@ export async function POST(request: NextRequest) {
               <div class="contact-info">
                 <h3>📞 Need immediate assistance?</h3>
                 <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                <p><strong>Email:</strong> info@financepro.com</p>
+                <p><strong>Email:</strong> info@Keystone.com</p>
                 <p><strong>Business Hours:</strong> Mon-Fri 9AM-6PM, Sat 10AM-4PM</p>
               </div>
               
               <p>We specialize in helping Canadian businesses in aesthetics and hospitality secure the funding they need with speed, flexibility, and trust.</p>
               
               <p>Best regards,<br>
-              <strong>The FinancePro Team</strong><br>
+              <strong>The Keystone Team</strong><br>
               Your Trusted Partner in Financial Solutions</p>
             </div>
             <div class="footer">
               <p>This is an automated confirmation email.</p>
-              <p>© 2024 FinancePro. All rights reserved.</p>
+              <p>© 2024 Keystone. All rights reserved.</p>
             </div>
           </div>
         </body>
@@ -192,7 +192,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: process.env.SMTP_FROM,
       to: email,
-      subject: "Thank You for Contacting FinancePro - We'll Be In Touch Soon!",
+      subject: "Thank You for Contacting Keystone - We'll Be In Touch Soon!",
       html: customerEmailHtml,
     })
 

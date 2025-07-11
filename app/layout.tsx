@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "FinancePro - Your Financial Solutions Partner",
+  title: "Keystone - Your Financial Solutions Partner",
   description:
     "Comprehensive financial services including mortgages, refinancing, leasing, and more. Get approved quickly with our expert team.",
     generator: 'v0.dev'

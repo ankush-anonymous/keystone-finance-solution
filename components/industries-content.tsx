@@ -7,6 +7,8 @@ import Image from "next/image"
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Link from "next/link"
+
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -18,7 +20,7 @@ const industries = [
     title: "Medical Aesthetics Clinics",
     icon: Sparkles,
     description: "Lasers, spa machines, devices",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/images/medical-aesthetics-bg.png",
     color: "from-pink-500 to-rose-500",
     hoverColor: "hover:from-pink-600 hover:to-rose-600",
     iconBg: "bg-pink-100",
@@ -28,7 +30,7 @@ const industries = [
     title: "Beauty & Wellness Spas",
     icon: Heart,
     description: "Hydrofacials, chairs, decor upgrades",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/images/beauty-spa-bg.png",
     color: "from-purple-500 to-violet-500",
     hoverColor: "hover:from-purple-600 hover:to-violet-600",
     iconBg: "bg-purple-100",
@@ -38,7 +40,7 @@ const industries = [
     title: "Restaurants & Cafés",
     icon: Utensils,
     description: "Ovens, fridges, POS systems",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/images/restraunts-bg.png",
     color: "from-orange-500 to-red-500",
     hoverColor: "hover:from-orange-600 hover:to-red-600",
     iconBg: "bg-orange-100",
@@ -48,7 +50,7 @@ const industries = [
     title: "Fast-Casual Franchises",
     icon: Building2,
     description: "Kitchen equipment, expansion funding",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/images/fast-casual-bg.png",
     color: "from-blue-500 to-indigo-500",
     hoverColor: "hover:from-blue-600 hover:to-indigo-600",
     iconBg: "bg-blue-100",
@@ -58,7 +60,7 @@ const industries = [
     title: "Medical & Dental Offices",
     icon: Stethoscope,
     description: "Chairs, software, renovation",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/images/medical-dental-bg.png",
     color: "from-teal-500 to-cyan-500",
     hoverColor: "hover:from-teal-600 hover:to-cyan-600",
     iconBg: "bg-teal-100",
@@ -68,7 +70,7 @@ const industries = [
     title: "Commercial Real Estate Investors",
     icon: TrendingUp,
     description: "Mortgage financing, asset growth",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/images/real-estate-bg.png",
     color: "from-emerald-500 to-green-500",
     hoverColor: "hover:from-emerald-600 hover:to-green-600",
     iconBg: "bg-emerald-100",
@@ -219,14 +221,14 @@ export default function IndustriesContent() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden flex items-center">
+      <section className="min-h-screen  relative overflow-hidden flex items-center">
         {/* Background Image */}
         <div ref={heroRef} className="absolute inset-0">
           <Image
-            src="/placeholder.svg?height=800&width=1400"
+            src="/images/industry-banner.png"
             alt="Industries background"
             fill
-            className="object-cover opacity-15"
+            className="object-cover "
           />
         </div>
 
@@ -240,12 +242,12 @@ export default function IndustriesContent() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 ref={titleRef} className="text-5xl lg:text-7xl font-bold mb-6">
-              <span className="text-orange-400">Focused Industries.</span>
+              <span className="text-[#38b6ff]">Focused Industries.</span>
               <br />
               Proven Results.
             </h1>
             <div className="hero-line w-24 h-1 bg-orange-400 mx-auto mb-8"></div>
-            <p ref={subtitleRef} className="text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
+            <p ref={subtitleRef} className="text-xl lg:text-2xl text-white leading-relaxed max-w-3xl mx-auto">
               Specialized financing solutions tailored for specific industries, helping businesses grow and thrive with
               equipment they need.
             </p>
@@ -279,7 +281,7 @@ export default function IndustriesContent() {
                       fill
                       className="industry-image object-cover transition-transform duration-500"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-r ${industry.color} opacity-20`}></div>
+                    {/* <div className={`absolute inset-0 bg-gradient-to-r ${industry.color} opacity-20`}></div> */}
                   </div>
                 </div>
 
@@ -291,12 +293,14 @@ export default function IndustriesContent() {
                     {industry.description}
                   </p>
 
-                  <Button
-                    className={`industry-button w-full bg-gradient-to-r ${industry.color} ${industry.hoverColor} text-white transition-all duration-300 rounded-full py-3 group`}
-                  >
-                    Get Financing
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                 <Link href="/contact" passHref>
+  <Button
+    className={`industry-button w-full bg-gradient-to-r ${industry.color} ${industry.hoverColor} text-white transition-all duration-300 rounded-full py-3 group`}
+  >
+    Get Financing
+    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+  </Button>
+</Link>
                 </CardContent>
               </Card>
             ))}
@@ -315,22 +319,29 @@ export default function IndustriesContent() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center text-white max-w-4xl mx-auto">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Ready to <span className="text-orange-400">Grow Your Business?</span>
+              Ready to <span className="text-[#38b6ff]">Grow Your Business?</span>
             </h2>
             <p className="text-xl mb-8 text-gray-300 leading-relaxed">
               Join thousands of successful businesses across Canada that have chosen our specialized financing solutions
               to fuel their growth and expansion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105">
+                               <Link href="/contact" passHref>
+
+              <Button className="bg-[#004aad] hover:bg-[#38b6ff] hover:text-[#004aad] hover:font-bold text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105">
                 Apply Now
               </Button>
+              </Link>
+                               <Link href="/contact" passHref>
+
               <Button
                 variant="outline"
                 className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg font-semibold bg-transparent rounded-full transition-all duration-300 hover:scale-105"
               >
                 Schedule Consultation
               </Button>
+                            </Link>
+
             </div>
           </div>
         </div>

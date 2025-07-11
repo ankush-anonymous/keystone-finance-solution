@@ -36,24 +36,24 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+    details: ["+1 (416) 400-7674"],
     color: "text-orange-500",
     bgColor: "bg-orange-100",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@financepro.com", "support@financepro.com"],
+    details: ["vijay@keystonefinancialgrp.com", "info@keystonefinancialgrp.com"],
     color: "text-blue-500",
     bgColor: "bg-blue-100",
   },
-  {
-    icon: MapPin,
-    title: "Address",
-    details: ["123 Financial Street", "New York, NY 10001"],
-    color: "text-green-500",
-    bgColor: "bg-green-100",
-  },
+  // {
+  //   icon: MapPin,
+  //   title: "Address",
+  //   details: ["123 Financial Street", "New York, NY 10001"],
+  //   color: "text-green-500",
+  //   bgColor: "bg-green-100",
+  // },
   {
     icon: Clock,
     title: "Business Hours",
@@ -428,35 +428,47 @@ export default function ContactUsContent() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-green-900 relative overflow-hidden flex items-center">
-        {/* Background Image */}
-        <div ref={heroRef} className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=800&width=1400"
-            alt="Professional team meeting"
-            fill
-            className="object-cover opacity-20"
-          />
-        </div>
+     <section className="min-h-screen relative overflow-hidden flex items-center">
+  {/* Background Image */}
+  <div ref={heroRef} className="absolute inset-0">
+    <Image
+      src="/images/contact-banner.png"
+      alt="Professional team meeting"
+      fill
+      className="object-cover bg-cover bg-center bg-no-repeat"
+    />
+  </div>
 
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden opacity-20">
-          <div className="floating-element-1 absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full blur-xl"></div>
-          <div className="floating-element-2 absolute bottom-40 right-20 w-24 h-24 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-xl"></div>
-        </div>
+  {/* Floating Elements */}
+  <div className="absolute inset-0 overflow-hidden opacity-20">
+    <div className="floating-element-1 absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-[#004aad] to-[#0a346b] rounded-full blur-xl"></div>
+    <div className="floating-element-2 absolute bottom-40 right-20 w-24 h-24 bg-gradient-to-r from-[#38b6ff] to-[#004aad] rounded-full blur-xl"></div>
+  </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 ref={titleRef} className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Let's Start Your <span className="text-green-400">Financial Journey</span> Today.
-            </h1>
-            <div className="hero-line w-20 h-1 bg-green-400 mx-auto mb-8"></div>
-            <p ref={subtitleRef} className="text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
-              Tell us a bit about your business, and we'll guide you with the best possible solution.
-            </p>
-          </div>
-        </div>
-      </section>
+  {/* Text Content */}
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="max-w-4xl text-left text-white">
+      <h1
+        ref={titleRef}
+        className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-[#0a346b]"
+      >
+        Let's Start Your{" "}
+        <span className="text-[#38b6ff]">Financial Journey</span>{" "}
+        <span className="text-[#38b6ff]">Today</span>.
+      </h1>
+
+      <div className="hero-line w-20 h-1 bg-[#38b6ff] mb-8 rounded-full"></div>
+
+      <p
+        ref={subtitleRef}
+        className="text-xl lg:text-2xl text-[#004aad] leading-relaxed max-w-3xl"
+      >
+        Tell us a bit about your business, and we'll guide you with the best possible solution.
+      </p>
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Information Cards */}
       <section className="py-20 bg-gray-50 relative overflow-hidden">
@@ -469,7 +481,7 @@ export default function ContactUsContent() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
             {contactInfo.map((info, index) => (
               <Card
                 key={index}
