@@ -450,10 +450,10 @@ export default function ContactUsContent() {
     <div className="max-w-4xl text-left text-white">
       <h1
         ref={titleRef}
-        className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-[#0a346b]"
+        className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-[#0a346b]"
       >
         Let's Start Your{" "}
-        <span className="text-[#38b6ff]">Financial Journey</span>{" "}
+        <span className="text-[#38b6ff]">Financial <br/>Journey</span>{" "}
         <span className="text-[#38b6ff]">Today</span>.
       </h1>
 
@@ -461,7 +461,7 @@ export default function ContactUsContent() {
 
       <p
         ref={subtitleRef}
-        className="text-xl lg:text-2xl text-[#004aad] leading-relaxed max-w-3xl"
+        className="text-xl lg:text-2xl font-bold text-[#004aad] leading-relaxed max-w-3xl"
       >
         Tell us a bit about your business, and we'll guide you with the best possible solution.
       </p>

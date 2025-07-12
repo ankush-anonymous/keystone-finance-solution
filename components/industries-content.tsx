@@ -308,6 +308,78 @@ export default function IndustriesContent() {
         </div>
       </section>
 
+       {/* We Serve All Industries Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900 rounded-3xl p-8 lg:p-12 text-center text-white relative overflow-hidden shadow-2xl">
+              {/* Background decorative elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange-400/20 to-green-400/20 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-400/20 to-purple-400/20 rounded-full blur-2xl"></div>
+
+              {/* Floating geometric shapes */}
+              <div className="absolute top-8 left-8 w-16 h-16 border-2 border-white/20 transform rotate-45 animate-pulse"></div>
+              <div className="absolute bottom-8 right-8 w-12 h-12 border-2 border-orange-400/30 transform -rotate-12 animate-bounce"></div>
+              <div className="absolute top-1/2 right-16 w-8 h-8 bg-green-400/30 rounded-full animate-ping"></div>
+
+              <div className="relative z-10">
+                <div className="mb-8">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-6">
+                    <Building2 className="w-10 h-10 text-white" />
+                  </div>
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+                    We're Not Limited to These Industries
+                  </h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-400 mx-auto mb-6"></div>
+                </div>
+
+                <p className="text-xl lg:text-2xl text-blue-100 mb-8 leading-relaxed max-w-2xl mx-auto">
+                  Whatever your business type, we have flexible financing solutions tailored to your unique needs.
+                  <span className="text-orange-300 font-semibold"> Every industry deserves growth opportunities.</span>
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-6 mb-10 text-left">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <h4 className="font-semibold text-green-300 mb-2">✓ Manufacturing</h4>
+                    <p className="text-sm text-blue-200">Heavy machinery & equipment financing</p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <h4 className="font-semibold text-green-300 mb-2">✓ Technology</h4>
+                    <p className="text-sm text-blue-200">Software, hardware & IT infrastructure</p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <h4 className="font-semibold text-green-300 mb-2">✓ And Many More</h4>
+                    <p className="text-sm text-blue-200">Custom solutions for any business</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/contact">
+                    <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                      Contact Us for Your Industry
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="outline"
+                    className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg font-semibold bg-transparent rounded-full transition-all duration-300 hover:scale-105"
+                  >
+                    View All Services
+                  </Button>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/20">
+                  <p className="text-blue-200 text-sm">
+                    <span className="font-semibold text-green-300">500+ businesses funded</span> across
+                    <span className="font-semibold text-orange-300"> 50+ different industries</span> in Canada
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-r from-slate-800 to-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">

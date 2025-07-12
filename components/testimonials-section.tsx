@@ -164,10 +164,7 @@ export default function TestimonialsSection() {
               </div>
             </div>
 
-            <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-800 transition-colors px-6 py-3">
-              See More Reviews
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+           
           </div>
         </div>
       </div>

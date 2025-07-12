@@ -61,8 +61,7 @@ export default function Footer() {
               <div className="w-16 h-1 bg-gradient-to-r from-green-400 to-emerald-300"></div>
             </div>
             <p className="text-blue-100 leading-relaxed text-lg">
-              Canada's fastest-growing financial solution provider specializing in aesthetic and hospitality industries.
-              We help businesses secure the capital they need to thrive.
+              Whether you're a startup or a growing enterprise, we help all kinds of Canadian businesses get funded — with speed, flexibility, and trust
             </p>
 
             {/* Social Media Icons */}
